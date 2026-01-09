@@ -1,5 +1,5 @@
-VERSION 0.6
-FROM python:3
+VERSION 0.8
+FROM python:3.14.2-slim
 
 RUN pip install grpcio protobuf pycodestyle
 
@@ -7,7 +7,7 @@ WORKDIR /kvclient
 
 code:
     COPY client.py .
-    COPY github.com/earthly/earthly-example-proto:main+proto-py/py-pb/*.py .
+    COPY github.com/EarthBuild/earthly-example-proto:main+proto-py/py-pb/*.py .
 
 lint:
     FROM +code
